@@ -1,0 +1,103 @@
+li{list-style: none;}
+a{text-decoration: none; color: black;}
+
+$card: (margen: 10px , fondo: rgb(110, 110, 110) , letras: #F8F9FA);
+
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 80px;
+    height: 60px;
+}
+
+.name{
+    @include flex-row-center
+}
+
+.navbar {
+    background-color: rgb(200, 200, 200);
+    a:hover{
+        text-decoration: underline;
+        font-size: 25px;
+        background-color: rgb(240, 240, 240);
+        border: solid 4px rgb(240, 240, 240);
+        border-radius: 5px;
+    }
+}
+
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(230, 230, 230);
+    background: linear-gradient(to bottom, gray , rgb(210,210,210));
+}
+
+.btn{
+    background-color: rgb(170, 170, 170);
+}
+
+.card{ 
+    margin: map-get($card, margen );
+    background-color: map-get($card, fondo );
+    .card-body{
+        color: map-get($card, letras )
+    }
+}
+
+
+
+footer{
+    background-color: rgb(200, 200, 200);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    .links-footer{
+        font-size: 20px;
+        background-color: rgb(170, 170, 170);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        padding: 5px;
+    }
+}
+
+.qs-img {width: 100; height: 200px; margin: 10px;}
+
+.inf-personal {
+    border: solid 5px gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.ayuda{
+    @extend .inf-personal;
+    height: 300px;
+    padding-top: 30px;
+}
+
+.nombre-form{
+    border: solid 1px white;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.apellido-form{
+    @extend .nombre-form;
+    background-color: gray; 
+}
+
+@import "tabletView";
+
+@import "desktopView";
